@@ -31,7 +31,7 @@ export default function Home() {
         </Link>
       </MaxWidthWrapper>
 
-      {/* Velue Proposition section */}
+      {/* Value Proposition section */}
       <div>
         <div className="relative isolate">
           <div
