@@ -7,13 +7,13 @@ const Page = () => {
   const searchParams = useSearchParams();
   const origin = searchParams.get("origin");
 
-  const { data, isLoading } = trpc.authCallback.useQuery(undefined);
-
-  useEffect(() => {
-    if (!isLoading && data && data.success) {
-      router.push(origin ? origin : "/dashboard");
-    }
-  }, [isLoading, data, router, origin]);
+  const { data, isLoading } = trpc.authCallback.useQuery(undefined, {
+    onSuccess: (result: { success: boolean }) => {
+      if (result.success) {
+        router.push(origin ? origin : "/dashboard");
+      }
+    },
+  });
 };
 
 export default Page;
