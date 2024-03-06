@@ -1,5 +1,5 @@
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 import { trpc } from "../_trpc/client";
 
 const Page = () => {
@@ -13,7 +13,9 @@ const Page = () => {
         router.push(origin ? origin : "/dashboard");
       }
     },
-  });
+  } as any);
+
+  return null;
 };
 
 export default Page;
